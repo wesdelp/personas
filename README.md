@@ -1,2 +1,13 @@
 # personas
-Multi user role based app support for Rails using Devise
+
+## Setup
+
+```bash
+rails g personas:install
+```
+
+## Create a new persona
+
+```bash
+rails g personas:create Admin
+```
