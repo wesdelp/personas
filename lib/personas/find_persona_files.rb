@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry-byebug'
-
 module Personas
   class FindPersonaFiles < Rails::Railtie
     config.before_configuration do

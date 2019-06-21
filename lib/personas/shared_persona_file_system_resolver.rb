@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Personas
+  require 'action_view'
   # The purpose of the persona-specific file system resolver is to find view templates
   # not in persona folders. For example, if a template for home.html.erb cannot be found at
   # `app/views/admin/home.html.erb`, this resolver will remove the prefix of "admin" and
