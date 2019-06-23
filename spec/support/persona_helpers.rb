@@ -4,7 +4,7 @@ def build_persona(name)
   return if Personas.const_defined?(class_name)
 
   klass = Personas.const_set(
-    name.to_s.capitalize,
+    class_name,
     Class.new(Personas::Base)
   )
 
