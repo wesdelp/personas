@@ -5,7 +5,7 @@ require 'spec_helper'
 RSpec.describe Personas::RoutablePersonas do
   let(:routable)     { 'test' }
   let(:unroutable)   { 'unrouteable' }
-  let(:test_persona) { build_persona(routable) }
+  let!(:test_persona) { build_persona(routable) }
 
   describe '.find' do
     subject { described_class }
