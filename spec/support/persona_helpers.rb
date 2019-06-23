@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def build_persona(name)
   class_name = name.to_s.capitalize
 
