@@ -3,14 +3,16 @@
 require 'spec_helper'
 
 RSpec.describe Personas::RoutablePersonas do
-  let(:unroutable) { 'unrouteable' }
+  let(:routable)     { 'test' }
+  let(:unroutable)   { 'unrouteable' }
+  let(:test_persona) { build_persona(routable) }
 
   describe '.find' do
     subject { described_class }
 
-    let(:routable_personas) do
+    let!(:routable_personas) do
       {
-        'personas::test' => Personas::Test
+        "personas::#{routable}" => test_persona
       }
     end
 
@@ -21,7 +23,7 @@ RSpec.describe Personas::RoutablePersonas do
     end
 
     it 'returns persona matching name' do
-      expect(subject.find('test')).to eq Personas::Test
+      expect(subject.find('test')).to eq test_persona
     end
 
     context 'with no matching persona' do
@@ -43,12 +45,4 @@ RSpec.describe Personas::RoutablePersonas do
       specify { expect(subject).not_to be_routable(unroutable) }
     end
   end
-
-  # module Personas
-  #   class Test < Personas::Base
-  #     def self.applies?(_user)
-  #       true
-  #     end
-  #   end
-  # end
 end

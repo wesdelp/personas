@@ -24,4 +24,5 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 end
 
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 require File.expand_path('../lib/personas.rb', __dir__)
