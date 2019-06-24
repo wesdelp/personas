@@ -8,7 +8,8 @@ require_relative 'personas/other'
 require_relative 'personas/shared_persona_file_system_resolver'
 require_relative 'personas/rack/set_persona'
 require_relative 'personas/persona_switches'
-require_relative 'personas/find_persona_files' if defined? ::Rails::Railtie
+require_relative 'personas/fetcher'
+require_relative 'railties/find_persona_files' if defined? ::Rails::Railtie
 
 module Personas
 end

@@ -9,7 +9,7 @@ module Personas
 
       def call(env)
         @request = ::Rack::Request.new(env)
-        persona = ::Personas::Base.build_from_request(@request)
+        persona = ::Personas::Fetcher.build_from_request(@request)
         @request.session[:persona] = persona
         # @request.session[:previous_persona] = nil #unless persona.masquerading?
         @app.call(env)

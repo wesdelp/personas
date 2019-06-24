@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'base'
-require 'pry-byebug'
-
 module Personas
   class RoutablePersonas
     UnroutablePersona = Class.new(StandardError)
@@ -18,7 +15,7 @@ module Personas
     end
 
     def self.routable_personas
-      Personas::Base.routable_personas
+      Personas::Fetcher.routable_personas
     end
 
     def self.raise_unroutable_persona_error(persona)

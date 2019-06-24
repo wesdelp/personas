@@ -17,13 +17,13 @@ RSpec.describe Personas::RoutablePersonas do
     end
 
     before do
-      allow(Personas::Base)
+      allow(Personas::Fetcher)
         .to receive(:routable_personas)
         .and_return(routable_personas)
     end
 
     it 'returns persona matching name' do
-      expect(subject.find('test')).to eq test_persona
+      expect(subject.find(routable)).to eq test_persona
     end
 
     context 'with no matching persona' do
@@ -38,7 +38,7 @@ RSpec.describe Personas::RoutablePersonas do
     subject { described_class }
 
     context 'with supported persona' do
-      specify { expect(subject).to be_routable('test') }
+      specify { expect(subject).to be_routable(routable) }
     end
 
     context 'with non-supported persona' do

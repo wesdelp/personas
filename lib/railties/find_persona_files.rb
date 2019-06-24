@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-module Personas
+module Railties
   class FindPersonaFiles < Rails::Railtie
     config.before_configuration do
-      Dir[Rails.root.join('app', 'models', 'persona', '*.rb')].each { |file| require file }
+      Dir[Rails.root.join('app', 'models', 'personas', '*.rb')].each { |file| require file }
     end
   end
 end
