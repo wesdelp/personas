@@ -25,6 +25,17 @@ module Personas
         @file_name = name.underscore
         template 'persona_view.rb', "app/views/#{@file_name}/example/index.html"
       end
+
+      def add_route_helper
+        insert_into_file "config/routes.rb", :after => "Rails.application.routes.draw do\n" do
+          <<-RUBY
+  for_persona :#{name.underscore} do
+    # put routes for #{name.underscore} here
+  end
+
+          RUBY
+        end
+      end
     end
   end
 end
