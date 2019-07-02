@@ -1,10 +1,15 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
+require File.expand_path('../lib/personas.rb', __dir__)
+require './lib/generators/personas/install_generator'
+require './lib/generators/personas/create_generator'
 
 Bundler.setup
 
 RSpec.configure do |config|
+  config.include GeneratorTestHelpers
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
@@ -24,5 +29,3 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 end
 
-Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
-require File.expand_path('../lib/personas.rb', __dir__)

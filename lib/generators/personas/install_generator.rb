@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'pry-byebug'
+require 'rails/generators'
+
 module Personas
   module Generators
     class InstallGenerator < Rails::Generators::Base

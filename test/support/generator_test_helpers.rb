@@ -6,23 +6,35 @@ module GeneratorTestHelpers
   end
 
   module ClassMethods
-    def test_path
-      File.join(File.dirname(__FILE__), '..')
-    end
 
-    def create_generator_sample_app
-      FileUtils.cd(test_path) do
-        system rails_new_command
+    def create_test_app
+      FileUtils.cd(tmp_path) do
+        `rails new dummy --skip-active-record --skip-test-unit --skip-spring --skip-bundle --quiet`
+        File.open(dummy_app_path + '/Gemfile', 'a') do |f|
+          f.puts "gem 'personas', path: '#{File.join(File.dirname(__FILE__), '..', '..')}'"
+        end
+      end
+      FileUtils.cd(dummy_app_path) do
+        `bundle install`
       end
     end
 
-    def rails_new_command
-      'rails new tmp --skip-active-record --skip-test-unit --skip-spring --skip-bundle --quiet'
+    def remove_test_app
+      FileUtils.rm_rf(dummy_app_path)
     end
 
-    def remove_generator_sample_app
-      # FileUtils.rm_rf(destination_root)
-      FileUtils.rm_rf(test_path + '/tmp')
+    def run_install_generator
+      FileUtils.cd(dummy_app_path) do
+        puts `rails g personas:install -f 2>&1`
+      end
+    end
+
+    def dummy_app_path
+      File.join(tmp_path, 'dummy')
+    end
+
+    def tmp_path
+      @tmp_path ||= File.join(File.dirname(__FILE__), '..')
     end
   end
 end
