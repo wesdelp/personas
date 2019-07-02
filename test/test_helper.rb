@@ -8,3 +8,6 @@ require 'minitest/autorun'
 require 'rails/generators/test_case'
 require './lib/generators/personas/install_generator'
 require './lib/generators/personas/create_generator'
+
+# Load support files
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }

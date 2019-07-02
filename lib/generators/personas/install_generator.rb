@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'pry-byebug'
 module Personas
   module Generators
     class InstallGenerator < Rails::Generators::Base
@@ -26,6 +27,8 @@ module Personas
       private
 
       def needs_router_module?
+        log = Logger.new($stderr)
+        log.info(`ls`)
         File.readlines('config/routes.rb').none? do |line|
           line =~ /include #{persona_router_module}/
         end
