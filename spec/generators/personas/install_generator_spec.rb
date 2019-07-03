@@ -28,6 +28,12 @@ RSpec.describe Personas::InstallGenerator do
   end
 
   context 'when the persona router has already been included' do
-    # TODO
+    it 'does not add a second include statement' do
+      pending('figuring out missing Warden on second run of run_install_generator')
+      fail # rubocop:disable Style/SignalException
+      # expect(File.readlines("#{dummy_app_path}/config/routes.rb").select do |line|
+      #   line =~ /include Personas::PersonaRouter/
+      # end.count).to eq(1)
+    end
   end
 end
