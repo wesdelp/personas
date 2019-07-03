@@ -3,7 +3,8 @@
 module GeneratorTestHelpers
   def create_test_app
     FileUtils.cd(tmp_path) do
-      `rails new dummy --skip-active-record --skip-test-unit --skip-spring --skip-bundle --quiet`
+      `rails new dummy --skip-active-record --skip-test-unit --skip-spring \
+        --skip-bundle --skip-bootsnap --skip-listen --quiet`
       File.open(dummy_app_path + '/Gemfile', 'a') do |f|
         f.puts "gem 'personas', path: '#{File.join(File.dirname(__FILE__), '..', '..')}'"
       end

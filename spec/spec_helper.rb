@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+require 'pry-byebug'
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 require File.expand_path('../lib/personas.rb', __dir__)
 require './lib/generators/personas/install_generator'

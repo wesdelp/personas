@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-module Personas
-  module Generators
+require 'rails/generators'
+
+module Generators
+  module Personas
     class CreateGenerator < Rails::Generators::Base
       source_root File.expand_path('../templates', __dir__)
       argument :name, required: true,

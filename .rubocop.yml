@@ -38,3 +38,5 @@ RSpec/NamedSubject:
 RSpec/NestedGroups:
   Max: 4
 
+RSpec/BeforeAfterAll:
+  Enabled: false

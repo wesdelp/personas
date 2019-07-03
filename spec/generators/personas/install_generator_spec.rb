@@ -3,7 +3,7 @@
 require 'spec_helper'
 require 'pry-byebug'
 
-RSpec.describe Personas::Generators::InstallGenerator do
+RSpec.describe Personas::InstallGenerator do
   before(:all) do
     remove_test_app
     create_test_app
