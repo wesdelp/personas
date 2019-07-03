@@ -12,8 +12,8 @@ module Personas
       template 'personas.rb', 'config/initializers/personas.rb'
     end
 
-    def create_persona_model_directory
-      empty_directory 'app/models/persona'
+    def create_personas_model_directory
+      empty_directory 'app/models/personas'
     end
 
     def inject_include_personas_router
