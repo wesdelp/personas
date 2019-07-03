@@ -6,7 +6,6 @@ module GeneratorTestHelpers
   end
 
   module ClassMethods
-
     def create_test_app
       FileUtils.cd(tmp_path) do
         `rails new dummy --skip-active-record --skip-test-unit --skip-spring --skip-bundle --quiet`

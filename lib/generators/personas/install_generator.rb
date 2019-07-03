@@ -20,8 +20,8 @@ module Personas
       return unless needs_router_module?
 
       insert_into_file 'config/routes.rb',
-        include_router_block,
-        before: "Rails.application.routes.draw do\n"
+                       include_router_block,
+                       before: "Rails.application.routes.draw do\n"
     end
 
     private
@@ -36,7 +36,7 @@ module Personas
 
     def include_router_block
       <<~RUBY
-          include #{persona_router_module}
+        include #{persona_router_module}
 
       RUBY
     end
