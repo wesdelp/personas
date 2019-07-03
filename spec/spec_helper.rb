@@ -4,8 +4,9 @@ require 'bundler/setup'
 require 'pry-byebug'
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 require File.expand_path('../lib/personas.rb', __dir__)
-require './lib/generators/personas/install_generator'
-require './lib/generators/personas/create_generator'
+
+# require generators
+Dir[File.join(__dir__, '..', 'lib', 'generators', 'personas', '*.rb')].each { |file| require file }
 
 Bundler.setup
 

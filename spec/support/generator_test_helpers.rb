@@ -3,14 +3,9 @@
 module GeneratorTestHelpers
   def create_test_app
     FileUtils.cd(tmp_path) do
-      `rails new dummy --skip-active-record --skip-test-unit --skip-spring \
-        --skip-bundle --skip-bootsnap --skip-listen --quiet`
-      File.open(dummy_app_path + '/Gemfile', 'a') do |f|
-        f.puts "gem 'personas', path: '#{File.join(File.dirname(__FILE__), '..', '..')}'"
-      end
-    end
-    FileUtils.cd(dummy_app_path) do
-      `bundle install`
+      generate_app
+      add_gems
+      run_bundle
     end
   end
 
@@ -30,5 +25,20 @@ module GeneratorTestHelpers
 
   def tmp_path
     @tmp_path ||= File.join(File.dirname(__FILE__), '..')
+  end
+
+  def generate_app
+    `rails new dummy --skip-active-record --skip-test-unit --skip-spring \
+        --skip-bundle --skip-bootsnap --skip-listen --quiet`
+  end
+
+  def add_gems
+    File.open(dummy_app_path + '/Gemfile', 'a') do |f|
+      f.puts "gem 'personas', path: '#{File.join(File.dirname(__FILE__), '..', '..')}'"
+    end
+  end
+
+  def run_bundle
+    `bundle install`
   end
 end
