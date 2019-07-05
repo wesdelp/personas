@@ -18,6 +18,7 @@ Personas also provides a generator to creating a new custom persona. While this 
 ```bash
 rails g personas:create Admin
 ```
+
 This creates multiple files/directories:
 - `app/controllers/admin/` directory
   - along with an example controller
@@ -25,3 +26,25 @@ This creates multiple files/directories:
 - `app/views/admin/` directory
   - along with an example view file
 - inserts `for_persona :admin do ... end` helper into `config/routes.rb`
+
+# Route Helpers
+Personas includes route helper methods to lock down your routes to authorized personas. When a persona that isn't the intended tries to access a route for another persona, they will receive a `404 Not Found` HTTP response. 
+
+```ruby
+# config/routes.rb
+
+Rails.application.routes.draw do
+  for_persona :reader do
+    resources :posts, only: [:index, :show]
+  end
+  
+  for_persona :author do
+    resources :posts, only: [:index, :new, :create, :edit, :update, :show]
+  end
+  
+  for_persona :unauthenticated do
+    match '*path', to: 'sessions#new', via: :all
+  end
+end
+
+```
