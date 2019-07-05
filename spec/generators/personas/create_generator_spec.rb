@@ -2,17 +2,8 @@
 
 require 'spec_helper'
 
-RSpec.describe Personas::CreateGenerator do
-  before(:all) do
-    remove_test_app
-    create_test_app
-    run_install_generator
-    run_create_generator('admin')
-  end
-
-  after(:all) do
-    remove_test_app
-  end
+RSpec.describe Personas::CreateGenerator, type: :generator do
+  before(:all) { run_create_generator('admin') }
 
   it 'creates a personas models file' do
     expect(File).to exist("#{dummy_app_path}/app/models/personas/admin.rb")
