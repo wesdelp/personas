@@ -15,8 +15,7 @@ RSpec.describe Personas::CreateGenerator do
   end
 
   it 'creates a personas models file' do
-    # binding.pry
-    expect(File).to exist("#{dummy_app_path}/app/models/admin.rb")
+    expect(File).to exist("#{dummy_app_path}/app/models/personas/admin.rb")
   end
 
   it 'creates a controller directory and example file' do

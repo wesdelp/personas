@@ -13,7 +13,7 @@ module Personas
     def create_persona_model_file
       @file_name = name.underscore
       @class_name = name.titleize.gsub(/\s+/, '')
-      template 'persona_model.rb', "app/models/persona/#{@file_name}.rb"
+      template 'persona_model.rb', "app/models/personas/#{@file_name}.rb"
     end
 
     def create_persona_controller_file
@@ -36,10 +36,10 @@ module Personas
     private
 
     def route_block
-      <<-RUBY
-for_persona :#{name.underscore} do
-  # put routes for #{name.underscore} here
-end
+      <<~RUBY
+        for_persona :#{name.underscore} do
+          # put routes for #{name.underscore} here
+        end
 
       RUBY
     end
