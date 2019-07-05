@@ -19,6 +19,12 @@ module GeneratorTestHelpers
     end
   end
 
+  def run_create_generator(name)
+    FileUtils.cd(dummy_app_path) do
+      puts `rails g personas:create #{name} -f 2>&1`
+    end
+  end
+
   def dummy_app_path
     File.join(tmp_path, 'dummy')
   end
@@ -34,11 +40,17 @@ module GeneratorTestHelpers
 
   def add_gems
     File.open(dummy_app_path + '/Gemfile', 'a') do |f|
+      f.puts "gem 'faraday'"
+      f.puts "gem 'devise'"
       f.puts "gem 'personas', path: '#{File.join(File.dirname(__FILE__), '..', '..')}'"
     end
   end
 
   def run_bundle
-    `bundle install`
+    Bundler.with_clean_env do
+      FileUtils.cd(dummy_app_path) do
+        `bundle install`
+      end
+    end
   end
 end

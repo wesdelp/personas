@@ -1,3 +1,5 @@
+require 'warden/manager'
+
 Rails.application.config.middleware.insert_after Warden::Manager, Personas::Rack::SetPersona
 
 # Inserts in the second position after the default Rails file system resolver. This will keep it
