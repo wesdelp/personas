@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'personas/persona_router'
 require_relative 'personas/persona_routing_constraint'
+require_relative 'personas/rails/routes'
 require_relative 'personas/routable_personas'
 require_relative 'personas/base'
 require_relative 'personas/other'
