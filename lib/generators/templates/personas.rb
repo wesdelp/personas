@@ -5,4 +5,4 @@ Rails.application.config.middleware.insert_after Warden::Manager, Personas::Rack
 # By placing after the default Rails file system resolver, it gives priority to persona-specific
 # templates then looks for shared ones.
 ActionController::Base.view_paths.insert(1, Personas::SharedPersonaFileSystemResolver.new)
-Dir["#{Rails.root}/app/models/persona/*.rb"].each { |file| require file }
+Dir["#{Rails.root}/app/models/personas/*.rb"].each { |file| require file }
