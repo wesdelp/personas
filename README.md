@@ -19,13 +19,13 @@ Run the installation generator:
 rails g personas:install
 ```
 
-## Create a new persona
+### Create a new persona
 
 ```bash
 rails g personas:create Admin
 ```
 
-# Route Helpers
+### Route Helpers
 Personas includes route helper methods to lock down your routes to authorized personas. When a persona that isn't the intended tries to access a route for another persona, they will receive a `404 Not Found` HTTP response. 
 
 ```ruby
@@ -47,7 +47,7 @@ end
 
 ```
 
-# FAQ
+## FAQ
 *Why would I use this gem?*
 
 You have a Rails application with different interfaces for different user types. Personas allows you to break up your views/routes/controllers by persona in order to isolate their experiences. Avoid nesting conditionals in your views and excess authorization in your controllers.
