@@ -1,6 +1,8 @@
 # Personas
 Personas makes your multi-tenanted Rails application more secure, stable, and easy to test. It works by bucketing end users into "personas" at the router level in order to segregate routes, views, controllers, and more. 
 
+Devise integration is currently supported, with more to come soon.
+
 ## Setup
 Add personas to your Gemfile:
 ```ruby
