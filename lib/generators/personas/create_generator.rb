@@ -36,10 +36,10 @@ module Personas
     private
 
     def route_block
-      <<~RUBY
-        for_persona :#{name.underscore} do
-          # put routes for #{name.underscore} here
-        end
+      <<-RUBY
+  for_persona :#{name.underscore} do
+    # put routes for #{name.underscore} here
+  end
 
       RUBY
     end
