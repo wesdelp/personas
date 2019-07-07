@@ -8,7 +8,7 @@ module Personas
     end
 
     def persona_name(persona)
-      Personas::Base.routable_personas[persona].try(:friendly_name)
+      Personas::Fetcher.routable_personas[persona].try(:friendly_name)
     end
   end
 end
