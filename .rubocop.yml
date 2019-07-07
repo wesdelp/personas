@@ -6,6 +6,8 @@ AllCops:
   TargetRubyVersion: 2.4
   Exclude:
     - lib/generators/templates/**/*
+    - bin/**/*
+    - vendor/**/*
 
 Rails:
   Enabled: true
