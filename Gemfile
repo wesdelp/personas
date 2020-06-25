@@ -6,7 +6,7 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'activesupport'
-gem 'rack', '~> 2.0'
+gem 'rack', '~> 2.1'
 gem 'rails', '~> 5.2'
 
 group :development, :test, :ci do
